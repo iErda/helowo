@@ -31,10 +31,15 @@ public class ChatActivity extends AppCompatActivity {
     private int answer_cnt;
     private List<Msg>mMsgList;
 
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chatactivity);
+        Intent intent=getIntent();
+        Bundle info=intent.getExtras();
+        username=info.getString("username");
 
         initView();
         initData();
@@ -112,6 +117,7 @@ public class ChatActivity extends AppCompatActivity {
         mMsgList=new ArrayList<>();
         mMsgList.add(mMsgSendList.get(0));
         mMsgList.add(mMsgSendList.get(1));
+        mMsgList.add(new Msg("Hello,"+username,Msg.TYPE_RECEIVE));
         mMsgRecvList.add(new Msg("...",Msg.TYPE_RECEIVE));
     }
 

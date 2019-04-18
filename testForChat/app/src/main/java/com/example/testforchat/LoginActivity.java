@@ -96,6 +96,8 @@ private Button bt_nologin;
                 }
 
                 Intent intent= new Intent(LoginActivity.this,ChatActivity.class);
+                intent.putExtra("username",name.getText().toString().trim());
+                //Toast.makeText(LoginActivity.this,"username is "+name.getText().toString().trim(),Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 LoginActivity.this.finish();
             }
